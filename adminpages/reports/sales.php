@@ -152,7 +152,8 @@ function pmpro_report_sales_page()
 	if($period == "daily")
 	{
 		$startdate = $year . '-' . substr("0" . $month, strlen($month) - 1, 2) . '-01';
-		$enddate = $year . '-' . substr("0" . $month, strlen($month) - 1, 2) . '-31';
+                $days_in_month = cal_days_in_month( CAL_GREGORIAN, $month, $year );
+                $enddate = $year . '-' . substr("0" . $month, strlen($month) - 1, 2) . '-'. $days_in_month;
 		$date_function = 'DAY';
 		$currently_in_period = ( intval( date( 'Y' ) ) == $year && intval( date( 'n' ) ) == $month );
 	}
